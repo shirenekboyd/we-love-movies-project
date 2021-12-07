@@ -9,6 +9,7 @@ const theatersRouter = require("./theaters/theaters.router");
 const notFound = require("./errors/notFound");
 const errorHandler = require("./errors/errorHandler");
 
+//--CORS is enabled for the entire API
 app.use(cors());
 app.use(express.json());
 
