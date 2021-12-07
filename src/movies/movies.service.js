@@ -1,6 +1,8 @@
 const knex = require("../db/connection");
 const mapProperties = require("../utils/map-properties");
 
+//function to map the properties of an object to different properties on a new object.
+    //returns a new object with the source properties mapped to the target properties as specified in the configuration.
 const addCritic = mapProperties({
   critic_id: "critic.critic_id",
   preferred_name: "critic.preferred_name",
@@ -31,9 +33,7 @@ function read(movie_id) {
   .first();
 }
 
-//GET /movies/:movieId/theaters
-//This route should return all the `theaters` where the movie is playing. This means you will need to check
-//the `movies_theaters` table.
+//--GET /movies/:movieId/theaters
 function listOfTheatersPlayingMovie(movie_id) {
   return knex("theaters as t")
     .join("movies_theaters as mt", "t.theater_id", "mt.theater_id")
